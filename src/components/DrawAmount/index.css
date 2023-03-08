@@ -1,0 +1,16 @@
+.user-card-container {
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    list-style-type:none;
+  }
+  .button{
+    background-color: #150b3e;
+    border-width: 1px;
+    background-color:#c7d2fe ;
+    height: 40px;
+    width: 100px;
+    padding: 10px;
+    margin: 10px;
+  }

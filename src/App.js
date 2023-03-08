@@ -1,25 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import DrawAmount from './components/DrawAmount'
+import {Component} from 'react' 
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css"
+
+
+const initialAmountList=[
+  {id:1,
+  amount:50},
+  {id:2,
+  amount:100},
+  {
+    id:3,
+    amount:200
+  },
+  {
+  id:4,
+  amount:500
 }
+]
 
-export default App;
+class WithDrawalItem extends Component{
+    state={amount:2000,
+  AmountList:initialAmountList}
+
+ 
+  onChangeAmount=()=>{
+  
+
+    this.setState((prevState) => ({ amount: prevState.amount -50 }))
+  }
+
+render(){
+
+    const {AmountList}=this.state
+    const{amount}=this.state
+    return(
+        <div className='container'>
+          <div className='heading-container'>
+            <h1 className='heading'>{amount}</h1>
+            </div>
+            <div>
+               <ul>
+                {AmountList.map((eachItem)=>(
+          <DrawAmount AmountDrawDetails={eachItem} key={eachItem.id} onChangeAmount={this.onChangeAmount} />
+        ))}
+      </ul>
+            </div>
+        </div>
+    )
+     }
+}
+export default WithDrawalItem
